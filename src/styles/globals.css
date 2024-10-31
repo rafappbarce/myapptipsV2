@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Variables globales */
+:root {
+  /* Conversion des couleurs en format HSL */
+  --primary: 221.2 83.2% 53.3%;        /* Était #2563eb */
+  --primary-foreground: 210 40% 98%;
+  --secondary: 220 14% 46%;            /* Était #6b7280 */
+  --secondary-foreground: 220 14% 98%;
+  --accent: 262.1 83.3% 57.8%;         /* Était #8b5cf6 */
+  --accent-foreground: 210 40% 98%;
+  --background: 213 100% 98%;          /* Était #f8fafc */
+  --foreground: 222 84% 4.9%;          /* Était #020817 */
+
+  /* Nouvelles variables pour la cohérence */
+  --border: 214.3 31.8% 91.4%;
+  --input: 214.3 31.8% 91.4%;
+  --ring: var(--primary);
+
+  /* Garder le reste des variables que vous aviez */
+}
+
+/* Styles de base */
+body {
+  @apply bg-background text-foreground min-h-screen;
+}
+
+/* Classes utilitaires personnalisées */
+@layer components {
+  /* Boutons - Mise à jour pour utiliser les variables */
+  .btn-primary {
+    @apply px-4 py-2 bg-primary text-primary-foreground rounded-lg 
+           hover:bg-primary/90 transition-colors duration-200 
+           focus:ring-2 focus:ring-ring focus:ring-offset-2;
+  }
+
+  /* Cards - Garder votre style actuel car il fonctionne bien */
+  .card {
+    @apply p-6 bg-white rounded-xl shadow-md 
+           hover:shadow-lg transition-shadow duration-200
+           border border-gray-100;
+  }
+
+  /* Inputs - Mise à jour pour utiliser les variables */
+  .input-modern {
+    @apply w-full px-4 py-2 rounded-lg border border-input
+           focus:ring-2 focus:ring-ring focus:border-transparent
+           outline-none transition duration-200;
+  }
+}
